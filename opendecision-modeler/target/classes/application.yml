@@ -1,0 +1,85 @@
+spring:
+  application:
+    name: opendecision-modeler
+  cloud:
+    config:
+      uri: http://config:8888
+      fail-fast: true
+      password: ${CONFIG_SERVICE_PASSWORD}
+      username: user
+
+  hadoop:
+    fsUri: hdfs://192.168.199.117:9000
+
+  datasource:
+    druid:
+      #JDBC配置
+      url: jdbc:mysql://192.168.199.117:3306/opendecision_modeler?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      #连接池配置
+      initial-size: 10
+      max-active: 50
+      min-idle: 1
+      max-wait: 60000
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 50
+      validation-query: select 'x'
+      #validation-query-timeout:
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      #min-evictable-idle-time-millis:
+      #max-evictable-idle-time-millis:
+      filters: config #配置多个英文逗号分隔
+      #监控配置
+      web-stat-filter.enabled: false
+     #web-stat-filter.url-pattern:
+      #web-stat-filter.exclusions:
+      web-stat-filter.session-stat-enable: false
+      #web-stat-filter.session-stat-max-count:
+      #web-stat-filter.principal-session-name:
+      #web-stat-filter.principal-cookie-name:
+      web-stat-filter.profile-enable: false
+      #StatViewServlet配置
+      stat-view-servlet.enabled: false
+      #stat-view-servlet.url-pattern:
+      stat-view-servlet.reset-enable: false
+      #stat-view-servlet.login-username:
+      #stat-view-servlet.login-password:
+      #stat-view-servlet.allow:
+      #stat-view-servlet.deny:
+      # Spring监控配置
+      #aop-patterns:          # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+mybatis:
+  check-config-location: true
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: com.opendecision.modeler.domain
+  type-handlers-package:
+  executor-type: simple
+  configuration-properties:
+  configuration:
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+mapper:
+  mappers: com.opendecision.modeler.util.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+hbase:
+  config:
+    hbase.zookeeper.quorum: 192.168.199.117
+    hbase.zookeeper.property.clientPort: 2181
+    fs.defaultFS: hdfs://192.168.199.117:8020
+    fs.trash.interval: 1

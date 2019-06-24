@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.opendecision</groupId>
+	<artifactId>opendecision</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+
+	<modules>
+		<module>opendecision-core</module>
+		<module>opendecision-sender-amqp-client</module>
+		<module>opendecision-sender-kafka</module>
+		<module>opendecision-storage-elasticsearch</module>
+		<module>opendecision-storage-mongodb</module>
+		<module>opendecision-id-generator</module>
+		<module>opendecision-pmml-common</module>
+		<module>opendecision-hadoop-common</module>
+		<module>opendecision-config</module>
+		<module>opendecision-registry</module>
+		<module>opendecision-zipkin</module>
+		<module>opendecision-gateway</module>
+		<module>opendecision-management</module>
+		<module>opendecision-modeler</module>
+		<module>opendecision-rules-management</module>
+	</modules>
+</project>

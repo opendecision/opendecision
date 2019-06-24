@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: opendecision-modeler
+  cloud:
+    config:
+      uri: http://config:8888
+      fail-fast: true
+      password: ${CONFIG_SERVICE_PASSWORD}
+      username: user
+
+  hadoop:
+    fsUri: hdfs://192.168.199.117:50070

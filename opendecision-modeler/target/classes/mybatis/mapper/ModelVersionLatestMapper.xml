@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opendecision.modeler.mapper.ModelVersionLatestMapper">
+  <resultMap id="BaseResultMap" type="com.opendecision.modeler.domain.ModelVersionLatest">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="versionId" jdbcType="VARCHAR" property="versionId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="algorithm" jdbcType="VARCHAR" property="algorithm" />
+    <result column="format" jdbcType="VARCHAR" property="format" />
+    <result column="evaluator_version" jdbcType="VARCHAR" property="evaluatorVersion" />
+    <result column="size" jdbcType="DOUBLE" property="modelSize" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, versionId, `name`, algorithm, format, evaluator_version, `size`, version
+  </sql>
+
+</mapper>

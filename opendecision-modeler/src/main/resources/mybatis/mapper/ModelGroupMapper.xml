@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.opendecision.modeler.mapper.ModelGroupMapper">
+  <resultMap id="BaseResultMap" type="com.opendecision.modeler.domain.ModelGroup">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="parentId" jdbcType="VARCHAR" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, parentId, `name`
+  </sql>
+
+</mapper>
