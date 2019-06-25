@@ -6,8 +6,5 @@ import com.opendecision.modeler.util.MyMapper;
 
 public interface ModelVersionLatestMapper extends MyMapper<ModelVersionLatest> {
 
-    int deleteByPrimaryKey(String id);
-
-    ModelVersionLatest selectByPrimaryKey(String id);
 
 }

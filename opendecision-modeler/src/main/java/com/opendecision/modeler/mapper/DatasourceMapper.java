@@ -6,8 +6,5 @@ import com.opendecision.modeler.util.MyMapper;
 
 public interface DatasourceMapper extends MyMapper<Datasource> {
 
-    int deleteByPrimaryKey(String id);
-
-    Datasource selectByPrimaryKey(String id);
 
 }

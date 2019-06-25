@@ -1,16 +1,17 @@
+server:
+  port: 8081
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+
 spring:
   application:
     name: opendecision-modeler
-  cloud:
-    config:
-      uri: http://config:8888
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
-      username: user
-
   hadoop:
     fsUri: hdfs://192.168.199.117:9000
-
   datasource:
     druid:
       #JDBC配置

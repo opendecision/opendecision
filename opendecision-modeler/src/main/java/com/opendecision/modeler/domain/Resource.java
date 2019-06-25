@@ -1,6 +1,8 @@
 package com.opendecision.modeler.domain;
 
-public class Dataset extends BaseEntity {
+public class Resource extends BaseEntity {
+
+    private String datasourceId;
 
     private String name;
 
@@ -20,5 +22,13 @@ public class Dataset extends BaseEntity {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getDatasourceId() {
+        return datasourceId;
+    }
+
+    public void setDatasourceId(String datasourceId) {
+        this.datasourceId = datasourceId;
     }
 }

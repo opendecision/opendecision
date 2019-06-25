@@ -1,5 +1,8 @@
 package com.opendecision.modeler.domain;
 
+/**
+ * 数据分组，HIVE,HDFS,File
+ */
 public class Datasource extends BaseEntity {
 
 

@@ -2,7 +2,7 @@ package com.opendecision.modeler.domain;
 
 public class Model extends BaseEntity {
 
-
+    private String modelGroupId;
 
     private String name;
 
@@ -73,5 +73,13 @@ public class Model extends BaseEntity {
 
     public void setModelSize(String modelSize) {
         this.modelSize = modelSize;
+    }
+
+    public String getModelGroupId() {
+        return modelGroupId;
+    }
+
+    public void setModelGroupId(String modelGroupId) {
+        this.modelGroupId = modelGroupId;
     }
 }
