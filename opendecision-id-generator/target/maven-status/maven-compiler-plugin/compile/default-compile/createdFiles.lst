@@ -1,0 +1,4 @@
+com\opendecision\id\web\IdGeneratorController.class
+com\opendecision\id\IdGeneratorApplication.class
+com\opendecision\id\service\impl\IdGeneratorServiceImpl.class
+com\opendecision\id\service\IdGeneratorService.class

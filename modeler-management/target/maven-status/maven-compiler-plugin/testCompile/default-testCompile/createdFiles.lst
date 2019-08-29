@@ -1,0 +1,8 @@
+com\opendecision\modeler\web\ModelControllerTest.class
+com\opendecision\modeler\web\ModelGroupControllerTest.class
+com\opendecision\modeler\mapper\ModelVersionLatestMapperTest.class
+com\opendecision\modeler\mapper\ResourceMapperTest.class
+com\opendecision\modeler\mapper\DatasourceMapperTest.class
+com\opendecision\modeler\mapper\ModelGroupMapperTest.class
+com\opendecision\modeler\mapper\ModelMapperTest.class
+com\opendecision\modeler\mapper\ModelVersionMapperTest.class

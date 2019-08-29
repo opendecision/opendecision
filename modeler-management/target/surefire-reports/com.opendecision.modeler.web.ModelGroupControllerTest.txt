@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.opendecision.modeler.web.ModelGroupControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.opendecision.modeler.web.ModelGroupControllerTest
+initializationError(com.opendecision.modeler.web.ModelGroupControllerTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.Exception: No runnable methods
+

@@ -1,0 +1,66 @@
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
+
+spring:
+  application:
+    name: decision-management
+  hadoop:
+    fsUri: hdfs://192.168.31.122:9000
+  datasource:
+    druid:
+      #JDBC配置
+      url: jdbc:mysql://192.168.31.122:3306/opendecision_decision?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      #连接池配置
+      initial-size: 10
+      max-active: 50
+      min-idle: 1
+      max-wait: 60000
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 50
+      validation-query: select 'x'
+      #validation-query-timeout:
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      #min-evictable-idle-time-millis:
+      #max-evictable-idle-time-millis:
+      filters: config #配置多个英文逗号分隔
+      #监控配置
+      web-stat-filter.enabled: false
+     #web-stat-filter.url-pattern:
+      #web-stat-filter.exclusions:
+      web-stat-filter.session-stat-enable: false
+      #web-stat-filter.session-stat-max-count:
+      #web-stat-filter.principal-session-name:
+      #web-stat-filter.principal-cookie-name:
+      web-stat-filter.profile-enable: false
+      #StatViewServlet配置
+      stat-view-servlet.enabled: false
+      #stat-view-servlet.url-pattern:
+      stat-view-servlet.reset-enable: false
+      #stat-view-servlet.login-username:
+      #stat-view-servlet.login-password:
+      #stat-view-servlet.allow:
+      #stat-view-servlet.deny:
+      # Spring监控配置
+      #aop-patterns:          # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔

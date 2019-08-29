@@ -11,10 +11,9 @@
 
 	<modules>
 		<module>opendecision-core</module>
-		<module>opendecision-sender-amqp-client</module>
-		<module>opendecision-sender-kafka</module>
-		<module>opendecision-storage-elasticsearch</module>
-		<module>opendecision-storage-mongodb</module>
+		<module>opendecision-mybatis-mapper</module>
+		<module>opendecision-sender</module>
+		<module>opendecision-storage</module>
 		<module>opendecision-id-generator</module>
 		<module>opendecision-pmml-common</module>
 		<module>opendecision-hadoop-common</module>
@@ -22,8 +21,14 @@
 		<module>opendecision-registry</module>
 		<module>opendecision-zipkin</module>
 		<module>opendecision-gateway</module>
-		<module>opendecision-management</module>
-		<module>opendecision-modeler</module>
-		<module>opendecision-rules-management</module>
+		<module>decision-management</module>
+		<module>modeler-management</module>
+		<module>rules-management</module>
 	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Finchley.SR2</spring-cloud.version>
+	</properties>
 </project>
