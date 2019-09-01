@@ -2,14 +2,13 @@ package com.opendecision.modeler.web;
 
 
 import com.opendecision.modeler.service.ModelService;
+import com.opendecision.modeler.web.request.ModelRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/modeler")
 public class ModelController {
 
     @Autowired
@@ -26,11 +25,12 @@ public class ModelController {
     @DeleteMapping("/model/{id}")
     public ResponseEntity deleteModel(@PathVariable String id) {
 
+        modelService.deleteModelById(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/model")
-    public ResponseEntity addModel() {
+    public ResponseEntity addModel(@RequestBody ModelRequest modelRequest) {
 
         return ResponseEntity.ok().build();
     }

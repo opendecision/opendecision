@@ -1,11 +1,6 @@
-package com.opendecision.modeler.domain;
+package com.opendecision.modeler.web.request;
 
-import com.opendecision.mybatis.mapper.BaseEntity;
-
-/**
- * 数据源分组，HIVE,HDFS,File
- */
-public class Datasource extends BaseEntity {
+public class DatasourceRequest {
 
     private String parentId;
 
@@ -56,4 +51,6 @@ public class Datasource extends BaseEntity {
     public void setPath(String path) {
         this.path = path;
     }
+
+
 }

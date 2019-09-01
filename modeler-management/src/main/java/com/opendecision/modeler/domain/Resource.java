@@ -2,6 +2,9 @@ package com.opendecision.modeler.domain;
 
 import com.opendecision.mybatis.mapper.BaseEntity;
 
+/**
+ * 数据
+ */
 public class Resource extends BaseEntity {
 
     private String datasourceId;
@@ -9,6 +12,8 @@ public class Resource extends BaseEntity {
     private String name;
 
     private String size;
+
+    private String path;
 
     public String getName() {
         return name;
@@ -32,5 +37,13 @@ public class Resource extends BaseEntity {
 
     public void setDatasourceId(String datasourceId) {
         this.datasourceId = datasourceId;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

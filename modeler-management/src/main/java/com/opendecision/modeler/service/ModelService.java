@@ -8,5 +8,5 @@ public interface ModelService {
 
     void publishModel();
 
-
+    void deleteModelById(String id);
 }

@@ -1,10 +1,11 @@
 package com.opendecision.modeler.service;
 
 import com.opendecision.modeler.domain.Datasource;
+import com.opendecision.modeler.web.request.DatasourceRequest;
 
 public interface DatasourceService {
 
-    void createDatasource(Datasource datasource);
+    void createDatasource(DatasourceRequest datasourceRequest);
 
     void deleteDatasource(String id);
 
@@ -13,4 +14,7 @@ public interface DatasourceService {
     void findOne(String id);
 
     void queryDatasources();
+
+
+
 }

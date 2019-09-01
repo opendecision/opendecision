@@ -8,7 +8,6 @@ public class ModelGroup extends BaseEntity {
 
     private String name;
 
-
     public String getParentId() {
         return parentId;
     }

@@ -1,6 +1,7 @@
 package com.opendecision.modeler.service;
 
 import com.opendecision.modeler.domain.Resource;
+import com.opendecision.modeler.web.request.ResourceRequest;
 
 public interface ResourceService {
 
@@ -12,7 +13,9 @@ public interface ResourceService {
 
     void deleteResource(String id);
 
-    void updateResource(Resource resource);
+    void updateResource(String id, ResourceRequest resourceRequest);
 
     void saveResource(Resource resource);
+
+    void downloadResource(String id);
 }
