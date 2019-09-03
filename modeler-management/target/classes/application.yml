@@ -55,12 +55,6 @@ spring:
       # Spring监控配置
       #aop-patterns:          # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
 
-pagehelper:
-  helperDialect: mysql
-  reasonable: false
-  supportMethodsArguments: true
-  params: count=countSql
-
 
 mybatis:
   check-config-location: true

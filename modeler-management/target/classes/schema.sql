@@ -1,19 +1,5 @@
 use `opendecision_modeler`;
 
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 笔记本
-Source Server Version : 50726
-Source Host           : 192.168.199.117:3306
-Source Database       : opendecision_modeler
-
-Target Server Type    : MYSQL
-Target Server Version : 50726
-File Encoding         : 65001
-
-Date: 2019-06-24 23:56:33
-*/
 
 SET FOREIGN_KEY_CHECKS=0;
 

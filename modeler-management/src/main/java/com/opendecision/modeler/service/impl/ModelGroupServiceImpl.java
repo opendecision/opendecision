@@ -3,10 +3,10 @@ package com.opendecision.modeler.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.opendecision.modeler.domain.ModelGroup;
 import com.opendecision.modeler.mapper.ModelGroupMapper;
 import com.opendecision.modeler.service.ModelGroupService;
+import com.opendecision.modeler.web.request.ModelGroupPageRequest;
 import com.opendecision.modeler.web.request.ModelGroupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,15 +35,15 @@ public class ModelGroupServiceImpl implements ModelGroupService {
 
 
     @Override
-    public IPage<ModelGroup> findModelGroupPage(ModelGroupRequest request) {
+    public IPage<ModelGroup> findAll(IPage<ModelGroup> page, ModelGroupPageRequest pageRequest) {
 
-        BaseAction query = pageParams.mapToObject(BaseAction.class);
-        QueryWrapper<BaseAction> queryWrapper = new QueryWrapper();
+        ModelGroup query = pageRequest.buildModelGroup();
+        QueryWrapper<ModelGroup> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda()
-                .likeRight(ObjectUtils.isNotEmpty(query.getActionCode()), BaseAction::getActionCode, query.getActionCode())
-                .likeRight(ObjectUtils.isNotEmpty(query.getActionName()), BaseAction::getActionName, query.getActionName());
+                .eq(ObjectUtils.isNotEmpty(query.getId()), ModelGroup::getId, query.getId())
+                .eq(ObjectUtils.isNotEmpty(query.getName()), ModelGroup::getName, query.getName());
         queryWrapper.orderByDesc("create_time");
-        return modelGroupMapper.selectPage(new Page(pageParams.getPage(), pageParams.getLimit()), queryWrapper);
+        return modelGroupMapper.selectPage(page, queryWrapper);
     }
 
     @Override

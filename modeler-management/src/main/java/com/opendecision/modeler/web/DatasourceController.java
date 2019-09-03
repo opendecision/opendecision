@@ -1,6 +1,10 @@
 package com.opendecision.modeler.web;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.opendecision.modeler.domain.Datasource;
 import com.opendecision.modeler.service.DatasourceService;
+import com.opendecision.modeler.web.request.DatasourcePageRequest;
 import com.opendecision.modeler.web.request.DatasourceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +17,13 @@ public class DatasourceController {
     @Autowired
     private DatasourceService datasourceService;
 
-    @PostMapping(value = "/datasource")
-    public ResponseEntity datasourcePageList(@RequestBody DatasourceRequest datasourceRequest) {
+    @PostMapping(value = "/datasourcePageList")
+    public ResponseEntity datasourcePageList(@RequestBody DatasourcePageRequest datasourcePageRequest) {
 
-//        PageInfo<ModelGroup> modelGroups = null;
-
-        return null;
+        IPage<Datasource> page = new Page<>(datasourcePageRequest.getPage(), datasourcePageRequest.getSize());
+        IPage<Datasource> datasourceList = datasourceService.findAll(page, datasourcePageRequest);
+        return ResponseEntity
+                .ok(datasourceList);
     }
 
     @PostMapping("/datasource")

@@ -14,16 +14,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ModelGroupController.class)
-public class ModelGroupControllerTest {
+public class DatasourceControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     public void shouldReturnDefaultMessage() throws Exception {
 
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/modeler"))
-                .andDo(print())
-                .andExpect(status().isOk())
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(containsString("Hello World")));
     }
 

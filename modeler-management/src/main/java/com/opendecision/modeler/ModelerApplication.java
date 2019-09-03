@@ -1,7 +1,6 @@
 package com.opendecision.modeler;
 
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +13,6 @@ import java.io.IOException;
 
 @EnableWebMvc
 @EnableEurekaClient
-@MapperScan(basePackages = "com.opendecision.modeler.mapper")
 @SpringBootApplication
 public class ModelerApplication implements CommandLineRunner {
 

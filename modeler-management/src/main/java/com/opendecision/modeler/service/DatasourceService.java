@@ -1,6 +1,8 @@
 package com.opendecision.modeler.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.opendecision.modeler.domain.Datasource;
+import com.opendecision.modeler.web.request.DatasourcePageRequest;
 import com.opendecision.modeler.web.request.DatasourceRequest;
 
 public interface DatasourceService {
@@ -13,8 +15,6 @@ public interface DatasourceService {
 
     void findOne(String id);
 
-    void queryDatasources();
-
-
+    IPage<Datasource> findAll(IPage<Datasource> page, DatasourcePageRequest datasourcePageRequest);
 
 }

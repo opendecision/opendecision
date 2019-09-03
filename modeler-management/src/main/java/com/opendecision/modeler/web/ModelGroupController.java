@@ -1,7 +1,11 @@
 package com.opendecision.modeler.web;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.opendecision.modeler.domain.ModelGroup;
 import com.opendecision.modeler.service.ModelGroupService;
+import com.opendecision.modeler.web.request.ModelGroupPageRequest;
 import com.opendecision.modeler.web.request.ModelGroupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +19,12 @@ public class ModelGroupController {
     private ModelGroupService modelGroupService;
 
     @PostMapping(value = "/modelGroups")
-    public ResponseEntity modelGroupPageList(@RequestBody ModelGroupRequest groupRequest) {
+    public ResponseEntity modelGroupPageList(@RequestBody ModelGroupPageRequest pageRequest) {
 
-//        PageInfo<ModelGroup> modelGroups = null;
-
-        return null;
+        IPage<ModelGroup> page = new Page<>(pageRequest.getPage(), pageRequest.getSize());
+        IPage<ModelGroup> modelGroups = modelGroupService.findAll(page, pageRequest);
+        return ResponseEntity
+                .ok(modelGroups);
     }
 
     @PostMapping("/modelGroup")
@@ -27,7 +32,9 @@ public class ModelGroupController {
 
         modelGroupService.addModelGroup(groupRequest);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity
+                .ok()
+                .build();
     }
 
 
