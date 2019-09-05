@@ -2,7 +2,6 @@ package com.opendecision.modeler.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.opendecision.modeler.domain.Datasource;
 import com.opendecision.modeler.mapper.DatasourceMapper;
 import com.opendecision.modeler.service.DatasourceService;
@@ -62,9 +61,9 @@ public class DatasourceServiceImpl implements DatasourceService {
 
         Datasource query = datasourcePageRequest.buildDatasource();
         QueryWrapper<Datasource> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda()
-                .eq(ObjectUtils.isNotEmpty(query.getId()), Datasource::getId, query.getId())
-                .eq(ObjectUtils.isNotEmpty(query.getName()), Datasource::getName, query.getName());
+//        queryWrapper.lambda()
+//                .eq(ObjectUtils.isNotEmpty(query.getId()), Datasource::getId, query.getId())
+//                .eq(ObjectUtils.isNotEmpty(query.getName()), Datasource::getName, query.getName());
         queryWrapper.orderByDesc("id");
         return datasourceMapper.selectPage(page, queryWrapper);
     }

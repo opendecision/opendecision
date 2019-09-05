@@ -1,15 +1,12 @@
 package com.opendecision.modeler.web.request;
 
-import com.opendecision.modeler.domain.ModelGroup;
-
-public class ModelGroupPageRequest {
+public class ResourcePageRequest {
 
     private String name;
 
     private int page;
 
     private int size;
-
 
     public int getPage() {
         return page;
@@ -35,9 +32,4 @@ public class ModelGroupPageRequest {
         this.name = name;
     }
 
-    public ModelGroup buildModelGroup() {
-        ModelGroup modelGroup = new ModelGroup();
-        modelGroup.setName(this.name);
-        return modelGroup;
-    }
 }

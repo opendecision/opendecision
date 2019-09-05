@@ -1,6 +1,8 @@
 package com.opendecision.modeler.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.opendecision.modeler.domain.Resource;
+import com.opendecision.modeler.web.request.ResourcePageRequest;
 import com.opendecision.modeler.web.request.ResourceRequest;
 
 public interface ResourceService {
@@ -18,4 +20,6 @@ public interface ResourceService {
     void saveResource(Resource resource);
 
     void downloadResource(String id);
+
+    IPage<Resource> findAll(IPage<Resource> page, ResourcePageRequest pageRequest);
 }

@@ -1,6 +1,11 @@
 package com.opendecision.modeler.web;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.opendecision.core.ResponseBuilder;
+import com.opendecision.modeler.domain.Resource;
 import com.opendecision.modeler.service.ResourceService;
+import com.opendecision.modeler.web.request.ResourcePageRequest;
 import com.opendecision.modeler.web.request.ResourceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +19,17 @@ public class ResourceController {
     private ResourceService resourceService;
 
     @PostMapping(value = "/resources")
-    public ResponseEntity resourcePageList(@RequestBody ResourceRequest resourceRequest) {
+    public ResponseBuilder<Resource> resourcePageList(@RequestBody ResourcePageRequest pageRequest) {
 
-//        PageInfo<ModelGroup> modelGroups = null;
-
-        return null;
+        IPage<Resource> page = new Page<>(pageRequest.getPage(), pageRequest.getSize());
+        IPage<Resource> resourceList = resourceService.findAll(page, pageRequest);
+        return ResponseBuilder.ok().data(resourceList);
     }
 
     @PostMapping("/resource")
     public ResponseEntity createResource(@RequestBody ResourceRequest resourceRequest) {
 
-
+        resourceService.saveResource(resourceRequest.buildResource());
         return ResponseEntity.ok().build();
     }
 

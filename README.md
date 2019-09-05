@@ -5,17 +5,17 @@
 
 ## Business Architechture
 
-<img src="https://zipkin.io/public/img/web-screenshot.png" alt="Trace view screenshot" />
+<img src="https://github.com/opendecision/images/blob/master/architechture/cn/OpenDecision%E4%B8%9A%E5%8A%A1%E6%9E%B6%E6%9E%84.png" alt="Trace view screenshot" />
 
 
 ## Technology Architechture
 
 
-<img src="https://zipkin.io/public/img/web-screenshot.png" alt="Trace view screenshot" />
+<img src="https://github.com/opendecision/images/blob/master/architechture/cn/OpenDecsion%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84.png" alt="Trace view screenshot" />
 
 ## Data Architechture
 
-<img src="https://zipkin.io/public/img/web-screenshot.png" alt="Trace view screenshot" />
+<img src="https://github.com/opendecision/images/blob/master/architechture/cn/OpenDecision%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84.png" alt="Trace view screenshot" />
 
 ## How to build
 
@@ -37,12 +37,11 @@
 
 
 # Build the server and also make its dependencies
-$ ./mvnw -DskipTests --also-make -pl zipkin-server clean install
+
 # Run the server
-$ java -jar ./zipkin-server/target/zipkin-server-*exec.jar
+
 
 
 
 ### Javadocs
-https://zipkin.io/zipkin contains versioned folders with JavaDocs published on each (non-PR) build, as well
-as releases.
+

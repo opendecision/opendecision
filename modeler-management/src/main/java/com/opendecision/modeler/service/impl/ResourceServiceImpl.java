@@ -1,8 +1,10 @@
 package com.opendecision.modeler.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.opendecision.modeler.domain.Resource;
 import com.opendecision.modeler.mapper.ResourceMapper;
 import com.opendecision.modeler.service.ResourceService;
+import com.opendecision.modeler.web.request.ResourcePageRequest;
 import com.opendecision.modeler.web.request.ResourceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.hadoop.fs.FsShell;
@@ -64,5 +66,12 @@ public class ResourceServiceImpl implements ResourceService {
         Resource resource = resourceMapper.selectById(id);
 
         shell.get(resource.getPath(), "");
+    }
+
+    @Override
+    public IPage<Resource> findAll(IPage<Resource> page, ResourcePageRequest pageRequest) {
+
+
+        return null;
     }
 }

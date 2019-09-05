@@ -1,22 +1,14 @@
 package com.opendecision.modeler.web.request;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.opendecision.modeler.domain.Model;
 
 public class ModelPageRequest {
-
-    private IPage<Model> iPage;
 
     private String name;
 
     private int page;
 
     private int size;
-
-    public ModelPageRequest() {
-       iPage.setCurrent(this.page);
-       iPage.setSize(this.size);
-    }
 
     public int getPage() {
         return page;
@@ -34,13 +26,6 @@ public class ModelPageRequest {
         this.size = size;
     }
 
-    public IPage<Model> getiPage() {
-        return iPage;
-    }
-
-    public void setiPage(IPage<Model> iPage) {
-        this.iPage = iPage;
-    }
 
     public String getName() {
         return name;
