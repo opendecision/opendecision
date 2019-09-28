@@ -3,12 +3,13 @@ package com.opendecision.modeler.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.opendecision.modeler.domain.Model;
 import com.opendecision.modeler.web.request.ModelPageRequest;
+import com.opendecision.modeler.web.request.ModelRequest;
 
 public interface ModelService {
 
-    void getModelById(String id);
+    Model getModelById(String id);
 
-    void saveModel();
+    void saveModel(ModelRequest modelRequest);
 
     void publishModel();
 
