@@ -1,4 +1,6 @@
 package com.opendecision.rule.service;
 
-public interface RulesetService {
+public interface RuleSetService {
+
+    void generateScript();
 }

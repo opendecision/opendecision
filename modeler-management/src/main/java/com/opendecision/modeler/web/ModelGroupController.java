@@ -54,4 +54,13 @@ public class ModelGroupController {
 
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/modelGroups")
+    public ResponseBuilder getAllModelGroups() {
+
+
+        return ResponseBuilder
+                .ok()
+                .data(modelGroupService.findAll());
+    }
 }

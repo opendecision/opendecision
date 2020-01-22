@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.opendecision.modeler.mapper.ModelGroupMapper">
-  <resultMap id="BaseResultMap" type="com.opendecision.modeler.domain.ModelGroup">
+
+  <resultMap id="BaseResultMap" type="com.opendecision.modeler.dto.ModelGroupResponse">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="parentId" jdbcType="VARCHAR" property="parentId" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
 
@@ -11,4 +12,13 @@
     id, parentId, `name`
   </sql>
 
+  <select id="selectByParentId" resultMap="BaseResultMap">
+    SELECT
+      Base_Column_List
+    FROM
+      model_group m
+    WHERE
+      m.parentId = #{parentId}
+    ORDER BY m.id DESC
+  </select>
 </mapper>

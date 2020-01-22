@@ -4,12 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.opendecision.modeler.domain.ModelGroup;
+import com.opendecision.modeler.dto.ModelGroupResponse;
 import com.opendecision.modeler.mapper.ModelGroupMapper;
 import com.opendecision.modeler.service.ModelGroupService;
 import com.opendecision.modeler.web.request.ModelGroupPageRequest;
 import com.opendecision.modeler.web.request.ModelGroupRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ModelGroupServiceImpl implements ModelGroupService {
@@ -63,5 +67,35 @@ public class ModelGroupServiceImpl implements ModelGroupService {
     @Override
     public void deleteModelGroup(String id) {
         deleteById(id);
+    }
+
+    @Override
+    public List<ModelGroupResponse> findAll() {
+
+        List<ModelGroupResponse> responseList = modelGroupMapper.selectByParentId(null);
+        buildModelGroups(responseList);
+        return null;
+    }
+
+    private List<ModelGroupResponse> buildChildModelGroups(String parentId) {
+
+        List<ModelGroupResponse> modelGroupResponses = null;
+        if (parentId != null) {
+            modelGroupResponses = modelGroupMapper.selectByParentId(parentId);
+        }
+
+        return modelGroupResponses;
+    }
+
+    private void buildModelGroups(List<ModelGroupResponse> responseList) {
+
+        for (ModelGroupResponse modelGroup : responseList) {
+            if (StringUtils.isNotBlank(modelGroup.getParentId())) {
+                modelGroup.setChildren(buildChildModelGroups(modelGroup.getParentId()));
+            }
+            buildModelGroups(modelGroup.getChildren());
+        }
+
+        
     }
 }
